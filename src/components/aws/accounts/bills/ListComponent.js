@@ -4,6 +4,7 @@ import List, {
   ListItem,
   ListItemText,
 } from 'material-ui/List';
+import Icon from 'material-ui/Icon';
 import Spinner from 'react-spinkit';
 import Misc from '../../../misc';
 import PropTypes from 'prop-types';
@@ -29,10 +30,23 @@ export class Item extends Component {
   deleteBill = () => {
     this.props.deleteBill(this.props.account, this.props.bill.id);
   };
-
+  displayStatus(status) {
+    if (!status || status === "")
+      return "";
+    else {
+      return (
+        <div className="alert alert-danger" style={{marginBottom: 0}}>
+          {status} :
+        </div>
+      );
+    }
+  }
   render() {
 
     return (
+    <div>
+      <br/>
+      {this.displayStatus(this.props.bill.status)}
       <ListItem divider>
 
         <ListItemText
@@ -57,6 +71,7 @@ export class Item extends Component {
         </div>
 
       </ListItem>
+    </div>
     );
   }
 
