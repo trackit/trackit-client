@@ -4,7 +4,6 @@ import List, {
   ListItem,
   ListItemText,
 } from 'material-ui/List';
-import Icon from 'material-ui/Icon';
 import Spinner from 'react-spinkit';
 import Misc from '../../../misc';
 import PropTypes from 'prop-types';
