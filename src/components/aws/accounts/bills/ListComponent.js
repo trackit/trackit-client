@@ -29,29 +29,25 @@ export class Item extends Component {
   deleteBill = () => {
     this.props.deleteBill(this.props.account, this.props.bill.id);
   };
-  displayStatus(status) {
-    if (!status || status === "")
-      return "";
-    else {
-      return (
-        <div className="alert alert-danger" style={{marginBottom: 0}}>
-          {status} :
-        </div>
-      );
-    }
-  }
+
   render() {
+    const status = (this.props.bill && this.props.bill.status ? (
+        <div className="alert alert-danger">
+		{this.props.bill.status}
+	</div>
+    ) : null);
 
     return (
-    <div>
-      <br/>
-      {this.displayStatus(this.props.bill.status)}
       <ListItem divider>
 
-        <ListItemText
-          disableTypography
-          primary={`s3://${this.props.bill.bucket}/${this.props.bill.prefix}`}
-        />
+	    <div>
+            {status}
+
+            <ListItemText
+              disableTypography
+              primary={`s3://${this.props.bill.bucket}/${this.props.bill.prefix}`}
+        	/>
+	    </div>
 
         <div className="actions">
 
@@ -70,7 +66,6 @@ export class Item extends Component {
         </div>
 
       </ListItem>
-    </div>
     );
   }
 
