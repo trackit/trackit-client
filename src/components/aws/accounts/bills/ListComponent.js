@@ -31,14 +31,23 @@ export class Item extends Component {
   };
 
   render() {
+    const status = (this.props.bill && this.props.bill.status ? (
+        <div className="alert alert-danger">
+		{this.props.bill.status}
+	</div>
+    ) : null);
 
     return (
       <ListItem divider>
 
-        <ListItemText
-          disableTypography
-          primary={`s3://${this.props.bill.bucket}/${this.props.bill.prefix}`}
-        />
+	    <div>
+            {status}
+
+            <ListItemText
+              disableTypography
+              primary={`s3://${this.props.bill.bucket}/${this.props.bill.prefix}`}
+        	/>
+	    </div>
 
         <div className="actions">
 
