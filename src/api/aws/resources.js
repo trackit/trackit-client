@@ -27,3 +27,10 @@ export const getRDSHistory = (token, date, accounts=undefined) => {
     route += `&accounts=${accounts.join(',')}`;
   return call(route, 'GET', null, token);
 };
+
+export const getEC = (token, date, accounts=undefined) => {
+  let route = `/ec?date=${date.format("YYYY-MM-DD")}`;
+  if (accounts && accounts.length)
+    route += `&accounts=${accounts.join(',')}`;
+  return call(route, 'GET', null, token);
+};

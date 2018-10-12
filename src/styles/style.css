@@ -643,18 +643,21 @@ h4.no-data {
 }
 
 .tags-list,
+.nodes-list,
 .volumes-list {
     padding: 10px;
     border: 1px solid #ddd;
 }
 
 .tags-item,
+.nodes-item,
 .volumes-item {
     padding: 10px 5px;
     border-bottom: 1px solid #ddd;
 }
 
 .tags-item:last-child,
+.nodes-item:last-child,
 .volumes-item:last-child {
     border-bottom: none;
 }

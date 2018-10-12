@@ -3,11 +3,13 @@ import Constants from '../../constants';
 export default {
   get: {
     EC2: (date) => ({type: Constants.AWS_RESOURCES_GET_EC2, date}),
-    RDS: (date) => ({type: Constants.AWS_RESOURCES_GET_RDS, date})
+    RDS: (date) => ({type: Constants.AWS_RESOURCES_GET_RDS, date}),
+    EC: (date) => ({type: Constants.AWS_RESOURCES_GET_EC, date}),
   },
   clear: {
     EC2: () => ({type: Constants.AWS_RESOURCES_GET_EC2_CLEAR}),
-    RDS: () => ({type: Constants.AWS_RESOURCES_GET_RDS_CLEAR,})
+    RDS: () => ({type: Constants.AWS_RESOURCES_GET_RDS_CLEAR}),
+    EC: () => ({type: Constants.AWS_RESOURCES_GET_EC_CLEAR}),
   },
   setDates: (startDate, endDate) => ({
     type: Constants.AWS_RESOURCES_SET_DATES,
