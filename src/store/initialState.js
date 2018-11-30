@@ -83,6 +83,12 @@ export default {
         value: null
       }
     },
+    ri: {
+      data: {
+        status: true,
+        value: null
+      }
+    }
   },
   events: {
     dates: {

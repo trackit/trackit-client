@@ -6,6 +6,7 @@ import reports from './reports'
 import resources from './resources'
 import map from './map';
 import tags from './tags';
+import ri from './ri';
 
 export default combineReducers({
   accounts,
@@ -14,5 +15,6 @@ export default combineReducers({
   reports,
   map,
   resources,
-  tags
+  tags,
+  ri
 });

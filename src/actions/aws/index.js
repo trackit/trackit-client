@@ -5,6 +5,7 @@ import Reports from './reportsActions';
 import Resources from './resourcesActions';
 import Map from './mapActions';
 import Tags from './tagsActions';
+import RI from './riActions';
 
 export default {
   Accounts,
@@ -13,5 +14,6 @@ export default {
   Reports,
   Resources,
   Map,
-  Tags
+  Tags,
+  RI
 };

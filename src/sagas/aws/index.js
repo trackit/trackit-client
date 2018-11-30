@@ -8,6 +8,7 @@ import { getReportsSaga, clearReportsSaga, downloadReportSaga } from './reportsS
 import { getEC2ReportSaga, getRDSReportSaga, getESReportSaga } from './resourcesSaga';
 import { getMapCostsSaga } from './mapSaga';
 import { getTagsKeysSaga, getTagsValuesSaga, initTagsChartsSaga, loadTagsChartsSaga, saveTagsChartsSaga, cleanTagsChartsSaga } from './tagsSaga';
+import { getRISaga } from './riSaga';
 import Constants from '../../constants';
 
 export function* watchGetAccounts() {
@@ -59,6 +60,11 @@ export function* watchLoadSelectedAccounts() {
 export function* watchGetCosts() {
   yield takeEvery(Constants.AWS_GET_COSTS, accumulateGetCostsSaga);
 }
+
+export function* watchGetRI() {
+  yield takeLatest(Constants.AWS_GET_RI_DATA, getRISaga);
+}
+
 
 // To manage concurrency when multiple calls are fired for the same id
 let tasks = {};

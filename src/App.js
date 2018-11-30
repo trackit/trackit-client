@@ -137,6 +137,10 @@ export class App extends Component {
               path={this.props.match.url + "/plugins"}
               component={checkRedirections(Containers.Plugins)}
             />
+            <Route
+              path={this.props.match.url + "/ri"}
+              component={checkRedirections(Containers.RI)}
+            />
           </div>
         </Containers.Main>
       </div>

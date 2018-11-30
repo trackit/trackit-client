@@ -15,5 +15,5 @@ export default {
 	...User,
 	...Events,
 	...Plugins,
-	...Highlevel
+	...Highlevel,
 };

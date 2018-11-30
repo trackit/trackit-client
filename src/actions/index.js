@@ -13,5 +13,5 @@ export default {
   Dashboard,
   Events,
   Plugins,
-  Highlevel
+  Highlevel,
 };
