@@ -87,14 +87,26 @@ class TableComponent extends Component {
     );
 
     return (<tr key={item.id}>
-      <td>{item.service}</td>
+      <td style={{ textAlign : 'center' }}>
+        <span className="badge blue-bg">{item.service}</span>
+      </td>
+      <td>
+        <span className="badge white-bg">{item.id}</span>
+      </td>
       <td>{item.region}</td>
       <td><span className="badge grey-bg">{item.type}</span></td>
-      <td>{moment(item.purchaseDate).format('YYYY-MM-DD')}</td>
-      <td>{moment(item.endDate).format('YYYY-MM-DD')}</td>
+      <td>
+        {moment.duration(moment(item.endDate).diff(moment(item.purchaseDate))).asYears().toFixed(0)} years
+        <br />
+        {moment(item.purchaseDate).format('YYYY-MM-DD')}
+        &nbsp;
+        <i className="fa fa-long-arrow-right"></i>
+        &nbsp;
+        {moment(item.endDate).format('YYYY-MM-DD')}
+      </td>
       <td>
         <OverlayTrigger placement="top" overlay={tooltip}>
-          <div className="progress">
+          <div className="progress m-t-15" style={{ minWidth: '150px', height: '10px' }}>
               <div
                   className={`progress-bar ${this.getStatusColor(this.getPercentage(usage.used, usage.usable))}-bg`}
                   role="progressbar"
@@ -163,32 +175,32 @@ class TableComponent extends Component {
         <table className="table">
           <thead>
             <tr>
-              <th onClick={this.setSorting.bind(this, 'service')}>
+              <th className="clickable" style={{ textAlign : 'center' }} onClick={this.setSorting.bind(this, 'service')}>
                 Service
                 &nbsp;
                 {this.state.sort === 'service' && (this.state.asc ? <i className="fa fa-arrow-down"/> : <i className="fa fa-arrow-up" />)}
               </th>
-              <th onClick={this.setSorting.bind(this, 'region')}>
+              <th className="clickable" onClick={this.setSorting.bind(this, 'id')}>
+                #
+                &nbsp;
+                {this.state.sort === 'id' && (this.state.asc ? <i className="fa fa-arrow-down"/> : <i className="fa fa-arrow-up" />)}
+              </th>
+              <th className="clickable" onClick={this.setSorting.bind(this, 'region')}>
                 Region
                 &nbsp;
                 {this.state.sort === 'region' && (this.state.asc ? <i className="fa fa-arrow-down"/> : <i className="fa fa-arrow-up" />)}
               </th>
-              <th onClick={this.setSorting.bind(this, 'type')}>
+              <th className="clickable" onClick={this.setSorting.bind(this, 'type')}>
                 Type
                 &nbsp;
                 {this.state.sort === 'type' && (this.state.asc ? <i className="fa fa-arrow-down"/> : <i className="fa fa-arrow-up" />)}
               </th>
-              <th onClick={this.setSorting.bind(this, 'purchaseDate')}>
-                Starting
+              <th className="clickable" onClick={this.setSorting.bind(this, 'purchaseDate')}>
+                Term
                 &nbsp;
                 {this.state.sort === 'purchaseDate' && (this.state.asc ? <i className="fa fa-arrow-down"/> : <i className="fa fa-arrow-up" />)}
               </th>
-              <th onClick={this.setSorting.bind(this, 'endDate')}>
-                Ending
-                &nbsp;
-                {this.state.sort === 'endDate' && (this.state.asc ? <i className="fa fa-arrow-down"/> : <i className="fa fa-arrow-up" />)}
-              </th>
-              <th onClick={this.setSorting.bind(this, 'usage')}>
+              <th className="clickable" onClick={this.setSorting.bind(this, 'usage')}>
                 Usage
                 &nbsp;
                 {this.state.sort === 'usage' && (this.state.asc ? <i className="fa fa-arrow-down"/> : <i className="fa fa-arrow-up" />)}

@@ -5,6 +5,10 @@ body {
     background: #ecedf0 !important;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 .app-container {
     max-width: 1500px;
     margin: auto;
@@ -205,6 +209,15 @@ button {
     background-color: #565656;
 }
 
+.white-color {
+    color: #ffffff;
+}
+
+.white-bg {
+    background-color: #ffffff;
+    color: #565656;
+}
+
 
 
 /* WHITE BOX */
@@ -267,6 +280,12 @@ label {
 .daterangepicker td.disabled, .daterangepicker option.disabled {
     color: #ddd;
     text-decoration: none;
+}
+
+/* Overriding Boostrap Table styling */
+
+.table th {
+    border-top: none;
 }
 
 /* Overriding React Table styling */
