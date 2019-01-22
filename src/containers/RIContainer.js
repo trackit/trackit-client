@@ -19,11 +19,10 @@ class RIContainer extends Component {
   }
 
   render() {
-
     const loading = (!this.props.data.status ? (<Spinner className="spinner" name='circle'/>) : null);
 
     const error = (this.props.data.error ? ` (${this.props.data.error.message})` : null);
-    const noData = (this.props.data.status && (!this.props.data.values || !this.props.data.values.length || error) ? <div className="alert alert-warning" role="alert">No data available{error}</div> : "");
+    const noData = (this.props.data.status && ((!this.props.data.values.EC2 && !this.props.data.values.RDS) || error) ? <div className="alert alert-warning" role="alert">No data available{error}</div> : "");
 
     const spinnerAndError = (loading || noData ? (
       <div className="white-box">
@@ -33,7 +32,7 @@ class RIContainer extends Component {
     ) : null);
 
     let table;
-    if (this.props.data.status && this.props.data.values && this.props.data.values.length) {
+    if (this.props.data.status && this.props.data.values && (this.props.data.values.EC2 || this.props.data.values.RDS)) {
       table = <Components.AWS.RI.Table
         data={this.props.data.values}
       />;

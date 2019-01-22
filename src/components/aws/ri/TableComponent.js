@@ -72,7 +72,7 @@ class TableComponent extends Component {
   }
 
   getRow(item) {
-    const usage = this.getUsage(item.purchaseDate, item.endDate, item.duration);
+    const usage = this.getUsage(item.reservation.start, item.reservation.end, item.reservation.usageDuration);
     const usageLabel = this.getUsageLabel(usage);
     const tooltip = (
       <Popover id="tooltip" title="Usage">
@@ -86,23 +86,23 @@ class TableComponent extends Component {
       </Popover>
     );
 
-    return (<tr key={item.id}>
+    return (<tr key={item.reservation.id}>
       <td style={{ textAlign : 'center' }}>
-        <span className="badge blue-bg">{item.service}</span>
+        <span className="badge blue-bg">{item.type}</span>
       </td>
       <td>
-        <span className="badge white-bg">{item.id}</span>
+        <span className="badge white-bg">{item.reservation.instanceCount > 1 ? `${item.reservation.instanceCount} instances` : `${item.reservation.instanceCount} instance` }</span>
       </td>
-      <td>{item.region}</td>
-      <td><span className="badge grey-bg">{item.type}</span></td>
+      <td>{item.reservation.region}</td>
+      <td><span className="badge grey-bg">{item.reservation.type}</span></td>
       <td>
-        {moment.duration(moment(item.endDate).diff(moment(item.purchaseDate))).asYears().toFixed(0)} years
+        {moment.duration(moment(item.reservation.end).diff(moment(item.reservation.start))).asYears().toFixed(0)} years
         <br />
-        {moment(item.purchaseDate).format('YYYY-MM-DD')}
+        {moment(item.reservation.start).format('YYYY-MM-DD')}
         &nbsp;
         <i className="fa fa-long-arrow-right"></i>
         &nbsp;
-        {moment(item.endDate).format('YYYY-MM-DD')}
+        {moment(item.reservation.end).format('YYYY-MM-DD')}
       </td>
       <td>
         <OverlayTrigger placement="top" overlay={tooltip}>
@@ -166,9 +166,18 @@ class TableComponent extends Component {
   }
 
   render() {
+    console.log(this.props.data);
     let rows;
-    const sortedData = this.sortData(this.props.data);
-    rows = sortedData.map(item => this.getRow(item));
+    const ec2Data = this.props.data.EC2;
+    const rdsData = this.props.data.RDS;
+    let res = [];
+    if (ec2Data)
+      res = res.concat(ec2Data);
+    if (rdsData)
+      res = res.concat(rdsData);
+    // const sortedData = this.sortData(res);
+    console.log(res);
+    rows = res.map(item => this.getRow(item));
 
     return (
       <div className="white-box">
@@ -218,7 +227,7 @@ class TableComponent extends Component {
 }
 
 TableComponent.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.object
 };
 
 export default TableComponent;

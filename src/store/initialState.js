@@ -86,7 +86,10 @@ export default {
     ri: {
       data: {
         status: true,
-        value: null
+        values: {
+          EC2: null,
+          RDS: null,
+        }
       }
     }
   },
