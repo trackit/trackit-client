@@ -63,7 +63,8 @@ i.white-box-title-icon {
 	color: #d6413b;
 }
 
-.account-badge.fa-clock-o {
+.account-badge.fa-clock-o,
+.account-badge.fa-alert-circle {
 	color: #ffa000;
 }
 
