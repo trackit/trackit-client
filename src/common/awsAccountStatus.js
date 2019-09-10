@@ -12,8 +12,8 @@ const getBadge = (status) => {
   switch (status.value) {
     case "error":
       return (<i className="fa account-badge fa-times-circle"/>);
-    case "no_arn":
-      return (<i className="fa account-badge fa-alert-circle"/>);
+    case "no_arn": //fa-alert-circle
+      return (<i className="fa account-badge fa-exclamation-circle"/>);
     case "not_started":
     case "in_progress":
       return (<i className="fa account-badge fa-clock-o"/>);
