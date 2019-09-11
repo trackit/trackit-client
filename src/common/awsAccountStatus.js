@@ -12,7 +12,7 @@ const getBadge = (status) => {
   switch (status.value) {
     case "error":
       return (<i className="fa account-badge fa-times-circle"/>);
-    case "no_arn": //fa-alert-circle
+    case "no_arn":
       return (<i className="fa account-badge fa-exclamation-circle"/>);
     case "not_started":
     case "in_progress":
@@ -29,7 +29,7 @@ const getInformationBanner = (status) => {
     case "error":
       return (<div className="alert alert-danger account-badge-information-banner">Import failed, please check your bills locations.</div>);
     case "no_arn":
-      return (<div className="alert alert-warning account-badge-information-banner">This account doesn't have any ARN set.</div>);
+      return (<div className="alert alert-warning account-badge-information-banner">This account does not have any ARN set.</div>);
     case "not_started":
     case "in_progress":
       return (<div className="alert alert-warning account-badge-information-banner">Import may take up to 24 hours, please wait.</div>);
