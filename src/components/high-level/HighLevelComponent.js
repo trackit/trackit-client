@@ -59,7 +59,7 @@ export class HighLevelComponent extends Component {
 
   handleKeyChange(key) {
       this.props.setTagsKeySelected(key);
-      this.props.getTagsValues(this.props.dates.startDate, this.props.dates.endDate, key);
+      this.props.getTagsValues(this.props.dates.startDate, this.props.dates.endDate, key, false);
   }
 
   render() {
@@ -243,8 +243,8 @@ const mapDispatchToProps = (dispatch) => ({
   getTagsKeys: (begin, end) => {
     dispatch(Actions.Highlevel.getTagsKeys(begin, end))
   },
-  getTagsValues: (begin, end, key) => {
-    dispatch(Actions.Highlevel.getTagsValues(begin, end, key))
+  getTagsValues: (begin, end, key, detailed) => {
+    dispatch(Actions.Highlevel.getTagsValues(begin, end, key, detailed))
   },
   setTagsKeySelected: (key) => {
     dispatch(Actions.Highlevel.selectTagsKey(key))
