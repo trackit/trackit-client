@@ -151,8 +151,8 @@ const tagsDispatchToProps = (dispatch) => ({
   removeChart: (id) => {
     dispatch(Actions.AWS.Tags.removeChart(id));
   },
-  getValues: (id, begin, end, filter, key) => {
-    dispatch(Actions.AWS.Tags.getValues(id, begin, end, filter, key));
+  getValues: (id, begin, end, filter, key, detailed) => {
+    dispatch(Actions.AWS.Tags.getValues(id, begin, end, filter, key, detailed));
   },
   setDates: (id, startDate, endDate) => {
     dispatch(Actions.AWS.Tags.setDates(id, startDate, endDate))

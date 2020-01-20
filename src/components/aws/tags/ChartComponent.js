@@ -143,7 +143,7 @@ class ChartComponent extends Component {
       && nextProps.keys.hasOwnProperty("values") && nextProps.keys.values.length)
       nextProps.selectKey(nextProps.id, this.selectDefaultKey(nextProps.keys.values));
     else if ((this.props.tag !== nextProps.tag && nextProps.tag !== "") || (this.props.filter !== nextProps.filter && nextProps.filter !== ""))
-      nextProps.getValues(nextProps.id, nextProps.dates.startDate, nextProps.dates.endDate, nextProps.filter, nextProps.tag);
+      nextProps.getValues(nextProps.id, nextProps.dates.startDate, nextProps.dates.endDate, nextProps.filter, nextProps.tag, false);
   }
 
   selectDefaultKey(keys) {

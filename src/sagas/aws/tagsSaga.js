@@ -29,11 +29,11 @@ export function* getTagsKeysSaga({ id, begin, end }) {
   }
 }
 
-export function* getTagsValuesSaga({ id, begin, end, filter, key }) {
+export function* getTagsValuesSaga({ id, begin, end, filter, detailed, key }) {
   try {
     const token = yield getToken();
     const accounts = yield getAWSAccounts();
-    const res = yield call(API.AWS.Costs.getTagsValues, token, begin, end, key, [filter], accounts);
+    const res = yield call(API.AWS.Costs.getTagsValues, token, begin, end, key, [filter], detailed, accounts);
     if (res.success === null) {
       yield put({type: Constants.LOGOUT_REQUEST});
       return;
