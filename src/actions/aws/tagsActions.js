@@ -4,13 +4,14 @@ export default {
   initCharts: () => ({type: Constants.AWS_TAGS_INIT_CHARTS}),
   addChart: (id) => ({type: Constants.AWS_TAGS_ADD_CHART, id}),
   removeChart: (id) => ({type: Constants.AWS_TAGS_REMOVE_CHART, id}),
-  getValues: (id, begin, end, filter, key) => ({
+  getValues: (id, begin, end, filter, key, detailed) => ({
     type: Constants.AWS_TAGS_GET_VALUES,
     id,
     begin,
     end,
     filter,
-    key
+    key,
+    detailed
   }),
   getKeys: (id, begin, end) => ({
     type: Constants.AWS_TAGS_GET_KEYS,
