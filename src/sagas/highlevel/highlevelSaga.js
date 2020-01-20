@@ -80,11 +80,11 @@ export function* getTagsKeysSaga({ begin, end }) {
   }
 }
 
-export function* getTagsValuesSaga({ begin, end, key }) {
+export function* getTagsValuesSaga({ begin, end, key, detailed }) {
   try {
     const token = yield getToken();
     const accounts = yield getAWSAccounts();
-    const res = yield call(API.AWS.Costs.getTagsValues, token, moment(begin).subtract(1, 'months'), end, key, ['month'], accounts);
+    const res = yield call(API.AWS.Costs.getTagsValues, token, moment(begin).subtract(1, 'months'), end, key, ['month'], detailed, accounts);
     if (res.success === null) {
       yield put({type: Constants.LOGOUT_REQUEST});
       return;
