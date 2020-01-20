@@ -28,11 +28,12 @@ export default {
 		begin: startDate,
 		end: endDate
 	}),
-	getTagsValues: (startDate, endDate, key) => ({
+	getTagsValues: (startDate, endDate, key, detailed) => ({
 		type: Constants.HIGHLEVEL_TAGS_COST_REQUEST,
 		begin: startDate,
 		end: endDate,
-		key
+		key,
+		detailed
 	}),
 	selectTagsKey: (key) => ({
 		type: Constants.HIGHLEVEL_TAGS_KEYS_SELECT,
