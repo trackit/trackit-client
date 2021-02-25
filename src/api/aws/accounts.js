@@ -45,7 +45,7 @@ export const getAccountViewer = (accountID, token) => {
 };
 
 export const addAccountViewer = (accountID, email, permissionLevel, token) => {
-  return call(`/user/share?account-id=${accountID}`, 'POST', {email, permissionLevel}, token);
+  return call(`/user/share?account-id=${accountID}`, 'POST', {email, permissionLevel, origin: "trackit"}, token);
 };
 
 export const editAccountViewer = (sharedID, permissionLevel, token) => {
