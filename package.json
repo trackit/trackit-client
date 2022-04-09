@@ -45,7 +45,7 @@
     "jest": "20.0.4",
     "jest-enzyme": "~4.0.1",
     "jquery": "~3.2.1",
-    "moment": "2.19.3",
+    "moment": "2.29.2",
     "normalize.css": "~7.0.0",
     "nvd3": "~1.8.6",
     "object-assign": "4.1.1",
